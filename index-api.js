@@ -1,4 +1,4 @@
-let express = require("express");
+const express = require("express");
 const app = express();
 const cors = require("cors");
 const router = express.Router();
@@ -18,7 +18,7 @@ const data = require("./data.json");
 router.route("/recipes")
     .get((req, res) => {
         const result = { "recipeNames": data.recipes.map(({ name }) => name) };
-        res.json(result);
+        res.status(200).json(result);
     })
     .post((req, res) => {
         const newRecipe = req.body;
